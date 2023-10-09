@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "graphrcnn"
+version = "0.1.0-alpha.1"
+description = "Graph generation models using fasterrcnn"
+authors = ["Spencer Hallyburton <spencer.hallyburton@duke.edu>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/cpsl-research/graph-rcnn.pytorch"
+repository = "https://github.com/cpsl-research/graph-rcnn.pytorch"
+keywords = ["scene graph generation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+]
+packages = [{include = "graphrcnn"}]
+include = ["CHANGELOG.md"]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+h5py = "^3.10.0"
+tqdm = "^4"
+opencv-python = ">=4.3, <4.7"
+matplotlib = "^3.7"
+torch = { url = "https://download.pytorch.org/whl/cu117/torch-1.13.1%2Bcu117-cp310-cp310-linux_x86_64.whl" }
+torchvision = { url = "https://download.pytorch.org/whl/cu117/torchvision-0.14.1%2Bcu117-cp310-cp310-linux_x86_64.whl" }
+
+[tool.poetry.group.docs.dependencies]
+mkdocstrings-python = "^0.8.3"
+mkdocs-material = "^9.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7"
+pytest-cov = "^4"
+bandit = "^1.7"
+black = "~22.12.0"
+mypy = "^0"
+isort = "^5.11"
+flake8 = "^5.0"
+autoflake = "^1"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q -s"
+testpaths = [
+    "tests",
+    "integration",
+]
+
+[build-system]
+requires = [
+    "poetry-core",
+]
+build-backend = "poetry.core.masonry.api"
